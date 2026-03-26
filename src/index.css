@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-cyan: #00fff5;
+  --neon-pink: #ff00c8;
+  --neon-green: #00ff88;
+  --bg-primary: #050810;
+  --bg-card: #0c1120;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #94a3b8;
+  font-family: "Rajdhani", sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 245, 0.25);
+  border-radius: 2px;
+}
+
+/* Single-layer subtle glows */
+.neon-text-cyan {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 30px rgba(0, 255, 245, 0.3);
+}
+.neon-text-pink {
+  color: var(--neon-pink);
+  text-shadow: 0 0 30px rgba(255, 0, 200, 0.25);
+}
+
+/* Faint dot grid */
+.cyber-grid {
+  background-image: radial-gradient(
+    rgba(0, 255, 245, 0.045) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
