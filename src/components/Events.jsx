@@ -3,12 +3,22 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-// Template Array: The boxes are ready. Fill these in whenever you host something!
+// Standardized Array with your actual Workshop details
 const events = [
-  { id: 1, type: 'EVENT',    title: 'Upcoming Event Name', date: 'TBD', time: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'N/A' },
-  { id: 2, type: 'WORKSHOP', title: 'Upcoming Workshop',   date: 'TBD', time: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'N/A' },
-  { id: 3, type: 'NOTICE',   title: 'Important Notice',    date: 'TBD', time: 'TBD', loc: 'TBD', status: 'active',   desc: 'N/A' },
-  { id: 4, type: 'CONTEST',  title: 'Upcoming Contest',    date: 'TBD', time: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'N/A' },
+  {
+    id: 1, 
+    type: 'WORKSHOP', 
+    status: 'active', 
+    title: 'CTC Coding Workshop 2026',
+    date: 'April 1, 2026',
+    loc: 'SLIET Campus',
+    desc: 'Registrations OPEN for B.E & Diploma students. Domains: AI/ML, Cyber Security, Web/App/Game Dev. Note: DSA/CP is mandatory for all selected participants.',
+    link: 'https://forms.gle/rPw7LHgCfFmGBQny9',
+    linkText: 'Register Now →'
+  },
+  { id: 2, type: 'EVENT',    title: 'Upcoming Event Name', date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Details will be announced soon.' },
+  { id: 3, type: 'NOTICE',   title: 'Important Notice',    date: 'TBD', loc: 'TBD', status: 'active',   desc: 'Keep an eye on this board for official club announcements.' },
+  { id: 4, type: 'CONTEST',  title: 'Upcoming Contest',    date: 'TBD', loc: 'TBD', status: 'upcoming', desc: 'Get your coding skills ready.' },
 ];
 
 const filters = ['ALL', 'EVENT', 'WORKSHOP', 'NOTICE', 'CONTEST'];
@@ -117,10 +127,22 @@ export default function Events() {
                 {e.desc}
               </p>
               
+              {/* Renders an <a> tag if a link exists, otherwise a static button */}
               {e.status !== 'past' && (
-                <button className="font-mono text-xs font-bold tracking-wider transition-colors duration-200 text-slate-400 group-hover:text-blue-400">
-                  More Info →
-                </button>
+                e.link ? (
+                  <a 
+                    href={e.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs font-bold tracking-wider transition-colors duration-200 text-blue-400 hover:text-blue-300 inline-block"
+                  >
+                    {e.linkText || 'More Info →'}
+                  </a>
+                ) : (
+                  <button className="font-mono text-xs font-bold tracking-wider transition-colors duration-200 text-slate-400 group-hover:text-blue-400 cursor-default">
+                    More Info →
+                  </button>
+                )
               )}
             </div>
           ))}

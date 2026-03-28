@@ -203,7 +203,7 @@ export default function Hero() {
                 href="#contact"
                 className="flex-1 text-center py-4 bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-500 hover:to-sky-400 text-white font-display text-xs font-bold tracking-widest uppercase rounded-xl transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_25px_rgba(14,165,233,0.5)] hover:-translate-y-0.5"
               >
-                Join Now
+                Contact Us
               </a>
               <a
                 href="#about"
